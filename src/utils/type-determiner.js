@@ -28,7 +28,7 @@ function triangleTypeDeterminer(side1, side2, side3) {
 
 function canBeATriangle( triangleSidesSet ){
   let canBe;
-  const arrayOfSides = [...triangleSidesSet]
+  const arrayOfSides = Array.from(triangleSidesSet)
   // there is no need to think about the best way of sorting because
   // there wouldn't be more than 3 elements 
   arrayOfSides.sort()
@@ -38,11 +38,14 @@ function canBeATriangle( triangleSidesSet ){
   // two other sides, those number won't make a triangle
   switch (arrayOfSides.length) {
     case 2:
-      const [smallerSides, biggerSide] = arrayOfSides
+      const smallerSides = parseFloat(arrayOfSides)[0]
+      const biggerSide = parseFloat(arrayOfSides)[1]
       canBe = biggerSide < (2 * smallerSides)
       break;
     case 3:
-      const [smallestSide, middleSide, biggestSide] = arrayOfSides
+      const smallestSide = parseFloat(arrayOfSides)[0]
+      const middleSide = parseFloat(arrayOfSides)[1]
+      const biggestSide = parseFloat(arrayOfSides)[2]
       canBe = biggestSide < (smallestSide + middleSide)
       break;
   
@@ -52,4 +55,4 @@ function canBeATriangle( triangleSidesSet ){
   return canBe
 }
 
-export default triangleTypeDeterminer
+module.exports = triangleTypeDeterminer

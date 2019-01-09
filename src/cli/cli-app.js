@@ -1,5 +1,5 @@
-import inquirer from 'inquirer'
-import triangleTypeDeterminer from '../utils/type-determiner.mjs'
+var inquirer = require('inquirer')
+var triangleTypeDeterminer = require('../utils/type-determiner')
 
 console.log('\nTriangle Type Determiner application\n');
 
