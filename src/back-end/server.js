@@ -2,10 +2,19 @@ var express = require('express');
 var app = express();
 var triangleTypeDeterminer = require('../utils/type-determiner')
 
-app.get('/typeDeterminer/:side1/:side2/:side3', function(req, res) {
-    let type = triangleTypeDeterminer(req.params.side1, req.params.side2, req.params.side3)   
+app.get('/typeDeterminer', function(req, res) {
+    try{
+        var par1 = parseFloat(req.query.side1)
+        var par2 = parseFloat(req.query.side2)
+        var par3 = parseFloat(req.query.side3)
+    }catch{
+        res.writeHead( 200 );
+        res.write( JSON.stringify( 'invalid data type' ) );
+        res.end();;
+    }
+    var response = triangleTypeDeterminer(par1, par2, par3)   
     res.setHeader('Content-Type', 'application/json'); 
-    res.send(JSON.stringify({ 'type' : type}));
+    res.send(JSON.stringify(response));
  });
  
 app.listen(5002);
