@@ -99,22 +99,23 @@ class App extends PureComponent {
     const lang = this.state.language
     const shouldRunAnimation = this.state.runAnimation
     return (
+      <React.Fragment>
+      <header className="header">
+        <a href="/" className="app-name">{texts[lang].appName}</a>
+        <nav className="nav-container">
+          <a href="https://github.com/Mhmdrza/triangleTypeDeterminer" className="link-icon">
+            <img src={Github} alt=""/>
+          </a>
+          <a href="https://www.linkedin.com/in/mohammadrezaala/" className="link-icon">
+            <img src={Linkedin} alt=""/>
+          </a>
+          <select className="header_button" value={this.state.language} onChange={this.handleChange}>
+            <option value="en">english</option>
+            <option value="fa">فارسی</option>
+          </select>
+        </nav>
+      </header>
       <div className={`${ shouldRunAnimation ? 'slide' : ''} app-root ${ this.state.language === "fa"? 'app-root--rtl' : ''}`}>
-        <header className="header">
-          <a href="/" className="app-name">{texts[lang].appName}</a>
-          <nav className="nav-container">
-            <a href="https://github.com/Mhmdrza/triangleTypeDeterminer" className="link-icon">
-              <img src={Github} alt=""/>
-            </a>
-            <a href="https://www.linkedin.com/in/mohammadrezaala/" className="link-icon">
-              <img src={Linkedin} alt=""/>
-            </a>
-            <select className="header_button" value={this.state.language} onChange={this.handleChange}>
-              <option value="en">english</option>
-              <option value="fa">فارسی</option>
-            </select>
-          </nav>
-        </header>
         <div className="header-corrector"/>
         <main className="app">
           <div className="app_inputs">
@@ -148,6 +149,7 @@ class App extends PureComponent {
           <p>@copyRight by me</p>
         </footer>
       </div>
+      </React.Fragment>
     );
   }
 }
