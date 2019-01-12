@@ -1,13 +1,14 @@
 export function triangleDrawer(side1, side2, side3, canvasRef) {
   // decending sort
-  let arrayOfSides = [side1,side2,side3].sort((function(a, b){return b - a}))
+  let scaleFactor = 20
+  let arrayOfSides = [side1* scaleFactor,side2* scaleFactor,side3* scaleFactor].sort((function(a, b){return b - a}))
   let [biggest, medium, smallest] = arrayOfSides
   const canvas = canvasRef
   if (canvas.getContext) {
     let ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.beginPath();
-    ctx.strokeStyle = 'red';
+    ctx.strokeStyle = '#61dafb';
     ctx.lineWidth = 1;
     
     const topArc = new Path2D();
@@ -35,8 +36,7 @@ export function triangleDrawer(side1, side2, side3, canvasRef) {
         commonPoint.push({ x: point.x, y: point.y})
       }
     )
-    let scaleFactor = 20
-    let offsetX = 10
+    let offsetX = 30
     let offsetY = 0
     let point1 = {
       x: 0 + offsetX,
@@ -44,20 +44,21 @@ export function triangleDrawer(side1, side2, side3, canvasRef) {
     }
     let point2 = {
       x: 0 + offsetX,
-      y: (biggest * scaleFactor) + offsetY
+      y: (biggest) + offsetY
     }
     let point3 = {
-      x: (commonPoint[0].x * scaleFactor) + offsetX,
-      y: (commonPoint[0].y * scaleFactor) + offsetY
+      x: (commonPoint[0].x) + offsetX,
+      y: (commonPoint[0].y) + offsetY
     }
     //drawing the triangle
     ctx.moveTo( point1.x, point1.y )
     ctx.lineTo( point2.x, point2.y )
     ctx.lineTo( point3.x, point3.y )
     ctx.lineTo( point1.x, point1.y )
+    ctx.lineJoin = "round"
     ctx.stroke()
     ctx.fillStyle = 'white';
-    ctx.font = "10px Verdana";
+    ctx.font = "15px Verdana";
     let bigSideTextPosition = {
       x: ((point1.x + point2.x) / 2) - 5,
       y: ((point1.y + point2.y) / 2) + 5,
@@ -70,9 +71,9 @@ export function triangleDrawer(side1, side2, side3, canvasRef) {
       x: ((point2.x + point3.x) / 2) - 5,
       y: ((point2.y + point3.y) / 2) + 5,
     }
-    ctx.fillText( biggest , bigSideTextPosition.x, bigSideTextPosition.y);
-    ctx.fillText( medium , mediumSideTextPosition.x, mediumSideTextPosition.y);
-    ctx.fillText( smallest , smallSideTextPosition.x, smallSideTextPosition.y);
+    ctx.fillText( biggest/scaleFactor , bigSideTextPosition.x, bigSideTextPosition.y);
+    ctx.fillText( medium/scaleFactor , mediumSideTextPosition.x, mediumSideTextPosition.y);
+    ctx.fillText( smallest/scaleFactor , smallSideTextPosition.x, smallSideTextPosition.y);
   }
 }
 
