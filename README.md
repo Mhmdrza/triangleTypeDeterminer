@@ -29,8 +29,6 @@ yarn
 
 <br>
 
----
-
 ## Available Scripts
 
 ### `Running Web Application`
@@ -74,7 +72,6 @@ and returns a json as a successful response or (400) bad request if parameters a
 }
 ```
 
-<hr>
 <br>
 
 ## Running Tests
@@ -94,8 +91,6 @@ yarn cypress:open
 ```
 
 <br>
-
----
 
 ## Contributing
 
