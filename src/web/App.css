@@ -1,0 +1,167 @@
+@keyframes slideIn {
+  from {
+    transform: scaleX(-1);
+    opacity: 0.7
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1
+  }
+}
+
+.slide {
+  animation-name: slideIn;
+  animation-duration: 1s;
+}
+
+.app-root--rtl {
+  direction: rtl;
+}
+
+.app-root {
+  background-color: #282c34;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 0rem;
+  z-index: 5;
+  background-color: #282c34;
+  color: white;
+  box-shadow: -4px 14px 19px 0px rgba(0, 0, 0, 0.31);
+}
+
+.app-name {
+  padding: 0 2rem;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+.app-name:hover {
+  color: #61dafb;
+}
+
+.nav-container {
+  padding: 0 2rem;
+}
+
+.link-icon {
+  padding: .5rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+}
+
+.link-icon>img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.link-icon:hover {
+  background-color: #61dafb;
+  color: black;
+}
+
+.header-corrector {
+  margin-top: 3rem;
+}
+
+.header_button {}
+
+.intro {
+  position: relative;
+  min-height: 25rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 10%;
+}
+
+.intro_background-image {
+  filter: blur(5px);
+  transform: scaleX(1);
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 190%;
+}
+
+.intro_forground-image {
+  max-height: 20rem;
+  z-index: 2;
+  filter: contrast(10%) brightness(150%) drop-shadow(8px 8px 10px rgb(93, 150, 197));
+}
+
+.intro_text {
+  max-width: 30rem;
+  line-height: 2rem;
+  z-index: 1;
+  border-radius: .8rem;
+  padding: 2rem;
+  color: white;
+}
+
+.description {
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+}
+
+.app {
+  text-align: center;
+  display: flex;
+  padding: 2rem;
+  flex-direction: row;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  box-shadow: -4px 14px 19px 0px rgba(185, 183, 183, 0.31);
+  color: white;
+}
+
+.app_inputs {
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  color: #61dafb;
+}
+
+.app_result {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.app-link {
+  color: #61dafb;
+  max-width: 7rem;
+}
+
+.app_inputs input {
+  text-align: center;
+  border: 1px solid rgb(66, 66, 66);
+  background-color: transparent;
+  border-radius: .5rem;
+  padding: .5rem;
+  color: white;
+  font-size: 1.5rem;
+  width: 3rem;
+}
+
+.footer {
+  padding: .5rem;
+  background-color: white;
+
+  text-align: center;
+}
